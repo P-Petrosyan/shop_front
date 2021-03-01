@@ -1,0 +1,54 @@
+<div>
+    <h1>Products Admin</h1>
+    <a [routerLink]="['/admin/products/create']"
+       class="btn btn-outline-success " >Create Product</a>
+    <table style="border:1px solid green" class="table tabel-hover table-bordered">
+        <thead>
+        <tr>
+            <th>name</th>
+            <th>image</th>
+            <th>description</th>
+            <th>price</th>
+            <th>Categories</th>
+            <th colspan="2" >action</th>
+        </tr>
+        </thead>
+        <tr *ngFor="let product of productsList | paginate:{
+            id: 'listing_pagination',
+            itemsPerPage: 5,
+            currentPage: page,
+            totalItems: totalRecords
+        }">
+            <td>{{product.name}}</td>
+            <td><img src="{{imagePath}}{{product.image}}" width="60px" alt="image"></td>
+            <td>{{product.short_description}}</td>
+            <td>{{product.price}}</td>
+            <td>
+                <ul *ngFor="let category of  product.categories ">
+                    <li>{{category.name}}</li>
+                </ul>
+            </td>
+
+            <td>
+                <a [routerLink]="['/admin/products/edit', product.id]"
+                   (click)="sendId(product.id)"
+                   class="btn btn-sm btn-outline-warning" >Edit Product</a>
+                <!--<button-->
+                        <!--class="btn btn-sm btn-outline-warning product-button"-->
+                        <!--type="button"-->
+                        <!--(click)="getProductForEdit(product.id)"-->
+                <!--&gt;Add To Basket</button>-->
+
+                <button class="btn btn-sm btn-outline-danger" (click)="onDelete(product.id)">delete</button>
+            </td>
+
+        </tr>
+    </table>
+    <div>
+        <pagination-controls id="listing_pagination" maxSize="10"
+                             directionLinks="true" (pageChange)="page = $event">
+
+        </pagination-controls>
+    </div>
+
+</div>

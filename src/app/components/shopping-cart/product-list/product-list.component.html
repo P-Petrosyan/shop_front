@@ -1,0 +1,16 @@
+<div class="row ">
+    <div class="col-md-3"*ngFor="let product of productsList | paginate:{
+            id: 'listing_pagination',
+            itemsPerPage: 8,
+            currentPage: page,
+            totalItems: totalRecords
+        }">
+        <app-product-item [productItem] = 'product'></app-product-item>
+
+    </div>
+
+</div>
+<div>
+    <pagination-controls id="listing_pagination" maxSize="10"
+                         directionLinks="true" (pageChange)="page = $event"></pagination-controls>
+</div>

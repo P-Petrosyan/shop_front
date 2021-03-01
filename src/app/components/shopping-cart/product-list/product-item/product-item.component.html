@@ -1,0 +1,31 @@
+<div class="card shadow-sm">
+    <img src=" http://127.0.0.1:8000/storage/images/products/{{productItem.image }}"
+        width="80%">
+    <!--uploads/main/user.jpg-->
+    <div class="card-body">
+        <p class="card-text">
+            <strong class="text-muted">{{productItem.name}}</strong>
+            <br>
+            <strong class="text-muted">{{productItem.price}}</strong>
+        </p>
+        <p class="card-text">{{productItem.short_description}}</p>
+        <div>
+            <ul *ngFor="let category of  productItem.categories ">
+                <li>{{category.name}}</li>
+
+            </ul>
+        </div>
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+                <button
+                    class="btn btn-sm btn-outline-primary product-button"
+                    type="button"
+                    (click)="handleAddToCard()"
+                >Add To Basket</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary product-button">View Detailes</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+

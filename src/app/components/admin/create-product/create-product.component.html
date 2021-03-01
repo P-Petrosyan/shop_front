@@ -1,0 +1,58 @@
+<div class="row">
+    <div class="col-md-4 offset-4">
+        <div class="card guest-form-card">
+            <div class=" card-header text-center">
+                <h2>Create Product</h2>
+            </div>
+
+            <div class="card-body">
+
+                    <form  #createForm="ngForm" (ngSubmit) = ' create()'>
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" name="name" class="form-control" [(ngModel)]="form.name" required>
+                    </div>
+                    <div class="form-group">
+                        <div >
+                            <label class="cutom-file-label" for="FormControlFile1">Choose Image</label>
+                            <input type="file" id="FormControlFile1" required
+                                   name="image" class="form-control-file" (change)="onFileSelected($event)" >
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Short Description</label>
+                        <textarea name="short_description"  class="form-control" [(ngModel)]="form.short_description" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Full Description</label>
+                        <textarea name="full_description" class="form-control" [(ngModel)]="form.full_description" ></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Price</label>
+                        <input type="number" name="price" class="form-control" [(ngModel)]="form.price" >
+
+                    </div>
+                    <div>
+                        <ng-multiselect-dropdown
+                                [placeholder]="'custom placeholder'"
+                                [data]="dropdownList"
+                                [(ngModel)]="selectedItems"
+                                [settings]="dropdownSettings"
+                                (onSelect)="onItemSelect($event)"
+                                (onSelectAll)="onSelectAll($event)"
+                        >
+                        </ng-multiselect-dropdown>
+                    </div>
+                    <div>
+                        <mat-slider min="1" max="100" step="1" value="1"></mat-slider>
+                    </div>
+
+                    <button class="btn btn-primary btn-block"  [disabled]="createForm.invalid">Create</button>
+
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="d-flex flex-column justify-content-around flex-md-row align-items-center p-3 px-md-4 mb-3 bg-body border-bottom shadow-sm">
+    <h5 class="h5 my-0 me-md-auto fw-weight-normal">
+        <app-header></app-header>
+    </h5>
+    <nav class="my-2 my-md-0 mr-md-3">
+        <a class="p-2 text-dark" [routerLink]="['/shop']">Shop</a>
+        <a class="p-2 text-dark" [routerLink]="['/cart']">Basket</a>
+        <a class="p-2 text-dark" href="#" (click)="toProducts($event)" *ngIf="isAdmin">Products</a>
+        <a class="p-2 text-dark" href="#">Pricing</a>
+
+    <!--<a class="btn btn-outline-primary" href="#">Sign up</a>-->
+    <a class="btn btn-outline-primary" [routerLink]="['/register'] " *ngIf="!loggedIn" >Sign up</a>
+    <a class="btn btn-outline-secondary" [routerLink]="['/login'] " *ngIf="!loggedIn" >Login</a>
+        <a class="btn btn-outline-primary" [routerLink]="['/profile'] " *ngIf="loggedIn" >My Profile</a>
+        <a class="btn btn-outline-secondary" href="#" (click)="logout($event)" *ngIf="loggedIn" >Logout</a>
+    </nav>
+</div>
