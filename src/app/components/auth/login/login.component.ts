@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
 import { LocalStorageService } from 'src/app/services/local-storage.service';
-import {JarwisService} from '../../../services/jarwis.service';
+import { JarwisService } from '../../../services/jarwis.service';
 import { Router } from '@angular/router';
-import {AuthService} from '../../../services/auth.service';
+import { AuthService } from '../../../services/auth.service';
 
 
 @Component({

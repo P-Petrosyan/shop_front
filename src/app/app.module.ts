@@ -24,9 +24,9 @@ import { ResponseResetComponent } from './components/auth/response-reset/respons
 import { JarwisService} from './services/jarwis.service';
 import { LocalStorageService} from './services/local-storage.service';
 import { AuthService} from './services/auth.service';
-import { AfterLoginGuard} from './guards/after-login.guard';
-import { BeforeLoginGuard} from './guards/before-login.guard';
-import {IsAdminGuard} from "./guards/is-admin.guard";
+import { AfterLoginGuard } from './guards/after-login.guard';
+import { BeforeLoginGuard } from './guards/before-login.guard';
+import { IsAdminGuard } from "./guards/is-admin.guard";
 import { ProductsComponent } from './components/admin/products/products.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { CreateProductComponent } from './components/admin/create-product/create-product.component';

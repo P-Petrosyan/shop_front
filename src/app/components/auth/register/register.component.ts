@@ -20,22 +20,29 @@ import { Router } from '@angular/router';
 export class RegisterComponent implements OnInit {
 
   // name: FormControl;
-  signupForm: FormGroup;
+  registerForm: FormGroup;
 
-  public form = {
-    email: null,
-    name: null,
-    password: null,
-    password_confirmation: null
-  };
+  form: any = {};
 
   public error = [];
 
-  constructor( private Jarwis: JarwisService,
+  constructor( private builder: FormBuilder,
+               private Jarwis: JarwisService,
                private router: Router,
                private localStorage: LocalStorageService,) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.buildForm()
+  }
+
+  buildForm(){
+    this.registerForm = this.builder.group({
+      name:['',Validators.required],
+      email:['', [Validators.required, Validators.email]],
+      password:['', [Validators.required, Validators.minLength(8)]],
+      confirmPassword:[Validators.required]
+    })
+  }
 
   register(){
     this.Jarwis.signup(this.form).subscribe(

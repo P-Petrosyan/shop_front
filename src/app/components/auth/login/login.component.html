@@ -8,7 +8,7 @@
 
             <div class="card-body">
 
-                <form  [formGroup]="loginForm" (ngSubmit) = ' login()'>
+                <form  [formGroup]="loginForm" (ngSubmit)=' login()'>
 
                     <div class="form-group">
                         <label for="email">Email</label>
@@ -38,7 +38,8 @@
                         <!--<label class="ml-1" for="remember"> Remember Me</label>-->
                     <!--</div>-->
                     <button class="btn btn-primary btn-block"  [disabled]="loginForm.invalid">Login</button>
-                    <a [routerLink]="['/shop']" class="btn btn-success btn-block" >Sign Up</a>
+                    <a [routerLink]="['/register']" class="btn btn-success btn-block" >Sign Up</a>
+                    <a [routerLink]="['/shop']" class="btn btn-outline-warning btn-block" >Continue as Guest</a>
                 </form>
 
             </div>

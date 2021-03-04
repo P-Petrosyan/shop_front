@@ -7,7 +7,7 @@
 
             <div class="card-body">
 
-                    <form  #createForm="ngForm" (ngSubmit) = ' create()'>
+                    <form  #createForm="ngForm" (ngSubmit)='create()'>
                     <div class="form-group">
                         <label>Name</label>
                         <input type="text" name="name" class="form-control" [(ngModel)]="form.name" required>
